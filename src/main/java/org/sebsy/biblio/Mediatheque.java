@@ -23,7 +23,10 @@ public class Mediatheque {
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 
-    public String relance(String adherent) {
+    public String relance(String adherent, String statut) {
+        if (statut == "VIP") {
+            return "OK";
+        }
         BigDecimal du = totalDu(adherent);
         if (du.compareTo(BigDecimal.ONE) > 0) {
             System.out.println("Relance envoyée à " + adherent);
