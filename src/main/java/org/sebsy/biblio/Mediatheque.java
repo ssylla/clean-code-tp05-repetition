@@ -22,4 +22,13 @@ public class Mediatheque {
                 .map(calculateur::penalite)
                 .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
+
+    public String relance(String adherent) {
+        BigDecimal du = totalDu(adherent);
+        if (du.compareTo(BigDecimal.ONE) > 0) {
+            System.out.println("Relance envoyée à " + adherent);
+            return "RELANCE";
+        }
+        return "OK";
+    }
 }
